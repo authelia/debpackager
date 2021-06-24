@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Install wget
+apt-get -y update
+apt-get -y install wget
+# Register qemu-*-static for all supported processors except the
+# current one, but also remove all registered binfmt_misc before
+docker --rm --privileged multiarch/qemu-user-static --reset
+
+wget https://github.com/multiarch/qemu-user-static/releases/download/v5.2.0-2/qemu-arm-static && \
+wget https://github.com/multiarch/qemu-user-static/releases/download/v5.2.0-2/qemu-aarch64-static && \
+chmod +x qemu-*-static

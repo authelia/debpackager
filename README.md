@@ -18,7 +18,7 @@ docker run \
   --rm \
   --name=debpackager \
   -v <path to data>:/build \
-  nightah/debpackager:arm32 \
+  nightah/debpackager:armhf \
   bash -c "cd /build && makedeb"
 ```
 

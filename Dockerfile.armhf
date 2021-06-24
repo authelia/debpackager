@@ -8,6 +8,8 @@ ENV DEBIAN_FRONTEND="noninteractive" \
 HOME="/build" \
 TERM="xterm"
 
+COPY ./qemu-arm-static /usr/bin/qemu-arm-static
+
 RUN \
   apt-get update && \
   apt-get dist-upgrade -y && \
@@ -21,7 +23,8 @@ RUN \
     wget -qO - 'https://proget.hunterwittenborn.com/debian-feeds/makedeb.pub' | gpg --dearmor | tee /usr/share/keyrings/makedeb-archive-keyring.gpg > /dev/null && \
     echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] https://proget.hunterwittenborn.com/ makedeb main' | tee /etc/apt/sources.list.d/makedeb.list && \
     apt-get update && \
-    apt-get install makedeb-alpha -y
+    apt-get install makedeb-alpha -y && \
+    rm /usr/bin/qemu-arm-static
 
 # set default user
 USER build
