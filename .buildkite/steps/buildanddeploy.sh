@@ -9,7 +9,7 @@ cat << EOF
     commands:
       - "docker build -f Dockerfile.${ARCH} --tag ${REPOSITORY}:${ARCH} --no-cache=true --pull=true ."
       - "docker push ${REPOSITORY}:${ARCH}"
-    concurrency: 1
+    concurrency: 2
     concurrency_group: "debpackager-deployments"
     agents:
       upload: "fast"
