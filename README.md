@@ -32,5 +32,6 @@ docker run \
 ```
 
 ## Version
+- **16/09/2021:** Update for buildx usage
 - **11/09/2021:** Replace makedeb-alpha with makedeb and add Buildkite configuration
 - **24/06/2021:** Initial release
