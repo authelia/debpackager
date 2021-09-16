@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu
+FROM ubuntu
 
 # set labels
 LABEL maintainer="Nightah"
@@ -7,8 +7,6 @@ LABEL maintainer="Nightah"
 ENV DEBIAN_FRONTEND="noninteractive" \
 HOME="/build" \
 TERM="xterm"
-
-COPY ./qemu-aarch64-static /usr/bin/qemu-aarch64-static
 
 RUN \
   apt-get update && \
@@ -23,8 +21,7 @@ RUN \
     wget -qO - 'https://proget.hunterwittenborn.com/debian-feeds/makedeb.pub' | gpg --dearmor | tee /usr/share/keyrings/makedeb-archive-keyring.gpg > /dev/null && \
     echo 'deb [signed-by=/usr/share/keyrings/makedeb-archive-keyring.gpg arch=all] https://proget.hunterwittenborn.com/ makedeb main' | tee /etc/apt/sources.list.d/makedeb.list && \
     apt-get update && \
-    apt-get install makedeb -y && \
-    rm /usr/bin/qemu-aarch64-static
+    apt-get install makedeb -y
 
 # set default user
 USER build

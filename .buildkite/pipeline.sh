@@ -2,11 +2,14 @@
 set -u
 
 REPOSITORY="authelia/debpackager"
+TAG="latest"
 
 cat << EOF
 steps:
-  - label: ":docker: Image Build and Deploys"
-    command: ".buildkite/steps/buildanddeploy.sh | buildkite-agent pipeline upload"
+  - label: ":docker: Build and Deploy"
+    command: "docker build --tag ${REPOSITORY}:${TAG} --platform linux/arm/v7,linux/arm64 --no-cache --pull --push ."
+    concurrency: 1
+    concurrency_group: "debpackager-deployments"
     agents:
       upload: "fast"
 

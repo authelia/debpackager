@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-if [[ "${BUILDKITE_LABEL}" =~ ":docker: Build and Deploy Image" ]]; then
+if [[ "${BUILDKITE_LABEL}" == ":docker: Build and Deploy" ]]; then
   echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
-  if [[ "${BUILDKITE_LABEL}" =~ "armhf" ]]; then
-    wget https://github.com/multiarch/qemu-user-static/releases/download/v5.2.0-2/qemu-arm-static
-  elif [[ "${BUILDKITE_LABEL}" =~ "arm64" ]]; then
-    wget https://github.com/multiarch/qemu-user-static/releases/download/v5.2.0-2/qemu-aarch64-static
-  fi
-  chmod +x qemu-*-static 
 fi
