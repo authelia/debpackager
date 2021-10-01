@@ -7,7 +7,7 @@ TAG="latest"
 cat << EOF
 steps:
   - label: ":docker: Build and Deploy"
-    command: "docker build --tag ${REPOSITORY}:${TAG} --platform linux/arm/v7,linux/arm64 --pull --push ."
+    command: "docker build --tag ${REPOSITORY}:${TAG} --platform linux/arm/v7,linux/arm64 --builder buildx --pull --push ."
     concurrency: 1
     concurrency_group: "debpackager-deployments"
     agents:
