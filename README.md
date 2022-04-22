@@ -18,6 +18,16 @@ docker run \
   --rm \
   --name=debpackager \
   -v <path to data>:/build \
+  --platform linux/amd64 \ 
+  authelia/debpackager \
+  bash -c "cd /build && makedeb"
+```
+
+```
+docker run \
+  --rm \
+  --name=debpackager \
+  -v <path to data>:/build \
   --platform linux/arm/v7 \ 
   authelia/debpackager \
   bash -c "cd /build && makedeb"
@@ -34,6 +44,7 @@ docker run \
 ```
 
 ## Version
+- **22/04/2022:** Add amd64 architecture
 - **16/09/2021:** Update for buildx usage
 - **11/09/2021:** Replace makedeb-alpha with makedeb and add Buildkite configuration
 - **24/06/2021:** Initial release
