@@ -14,8 +14,8 @@ RUN \
   apt-get install ca-certificates curl git gpg ssh sudo wget -y
 
 RUN \
-  echo "**** Add build user ****" && \
-    useradd -m -s /bin/bash -d /build build && \
+  echo "**** Modify Ubuntu user ****" && \
+    usermod -d /build ubuntu && \
   echo "**** Install Authelia CD pre-requisites ****" && \
     update-ca-certificates -f && \
     wget -qO - 'https://proget.hunterwittenborn.com/debian-feeds/makedeb.pub' | gpg --dearmor | tee /usr/share/keyrings/makedeb-archive-keyring.gpg > /dev/null && \
@@ -24,4 +24,4 @@ RUN \
     apt-get install makedeb -y
 
 # set default user
-USER build
+USER ubuntu

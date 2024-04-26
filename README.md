@@ -44,6 +44,7 @@ docker run \
 ```
 
 ## Version
+- **26/04/2024:** Update build user
 - **22/04/2022:** Add amd64 architecture
 - **16/09/2021:** Update for buildx usage
 - **11/09/2021:** Replace makedeb-alpha with makedeb and add Buildkite configuration
