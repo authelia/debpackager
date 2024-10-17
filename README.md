@@ -1,4 +1,4 @@
-[logo]: https://github.com/authelia/authelia/raw/master/docs/images/authelia-title.png "Authelia"
+[logo]: https://www.authelia.com/images/branding/title.png "Authelia"
 [![alt text][logo]](https://www.authelia.com/)
 
 # authelia/debpackager
@@ -44,6 +44,7 @@ docker run \
 ```
 
 ## Version
+- **17/10/2024:** Add Provenance and SBOM attestations
 - **26/04/2024:** Update build user
 - **22/04/2022:** Add amd64 architecture
 - **16/09/2021:** Update for buildx usage
